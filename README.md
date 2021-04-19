@@ -643,8 +643,6 @@ References =>
   Invoke the user.gdprDelete() method and view your comment again to solve the lab.
   ```
 
-* 
-
 ## Directory traversal
 
 ### Directory traversal
