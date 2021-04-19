@@ -21,43 +21,41 @@
   - [HTTP Host header attacks](#HTTP-Host-header-attacks)
   - [OAuth authentication](#OAuth-authentication)
 
-## OWASP
+## SQL Injection
 
-### SQL Injection
+## Cross Site Scripting
 
-### Cross Site Scripting
+## CSRF
 
-### CSRF
+## Clickjacking
 
-### Clickjacking
+## DOM based vulnerabilities
 
-### DOM based vulnerabilities
+## CORS
 
-### CORS
+## XXE Injection
 
-### XXE Injection
+## SSRF
 
-### SSRF
+## HTTP request smuggling
 
-### HTTP request smuggling
+## OS command injection
 
-### OS command injection
+## Server-side template injection
 
-### Server-side template injection
+## Directory traversal
 
-### Directory traversal
+## Access control vulnerabilities
 
-### Access control vulnerabilities
+## Authentication
 
-### Authentication
+## WebSockets
 
-### WebSockets
+## Web cache poisoning
 
-### Web cache poisoning
+## Insecure deserialization
 
-### Insecure deserialization
-
-### Information disclosure
+## Information disclosure
 
 #### About Information Disclosure =>
 
@@ -86,7 +84,7 @@
 NOTE : Our main focus on the IMPACT & Exploitability of the leaked information
 
 
-#### Testing for Information Disclosure =>
+### Testing for Information Disclosure =>
 
 ```Sensitive data can be leaked in all kinds of places, so it is important not to miss anything that could be useful later. ```
 
@@ -113,7 +111,7 @@ NOTE : Our main focus on the IMPACT & Exploitability of the leaked information
 *  We can sometimes cause error messages to disclose the value of our desired data in the response.
 
 
-#### Common Sources of Information Disclosure =>
+### Common Sources of Information Disclosure =>
 
 * Files for Web Crawlers -> robots.txt , sitemap.xml
 
@@ -175,7 +173,7 @@ NOTE : Our main focus on the IMPACT & Exploitability of the leaked information
 
 ============================================================================
 
-#### Lab Solution =>
+### Lab Solution =>
 
 #### 1. Unprotected admin functionality with unpredictable URL =>
 
@@ -264,8 +262,8 @@ Myself Note: though i solved this above lab but i still not understand this Seri
 *  .git directory
 *  Other HTTP Header Method -> TRACE
 
-### Business logic vulnerabilities
+## Business logic vulnerabilities
 
-### HTTP Host header attacks
+## HTTP Host header attacks
 
-### OAuth authentication
+## OAuth authentication
