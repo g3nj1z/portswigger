@@ -45,6 +45,49 @@
 
 ## Directory traversal
 
+### Directory traversal
+- Directory traversal (also known as file **path traversal**) is a web security vulnerability that allows an attacker to read arbitrary files on the server that is running an application.
+
+### Reading arbitrary files via directory traversal
+#### Unix-based operating systems
+- An attacker can request the following URL to retrieve an arbitrary file from the server's filesystem: 
+  - `https://insecure-website.com/loadImage?filename=../../../etc/passwd` 
+-  This causes the application to read from the following file path:
+   - `/var/www/images/../../../etc/passwd`
+
+#### Windows
+-  On Windows, both `../` and `..\` are valid directory traversal sequences, and an equivalent attack to retrieve a standard operating system file would be: 
+   - `https://insecure-website.com/loadImage?filename=..\..\..\windows\win.ini` 
+
+### Common obstacles to exploiting file path traversal vulnerabilities
+-  If an application strips or blocks directory traversal sequences from the user-supplied filename, then it might be possible to bypass the defense using a variety of techniques. 
+
+#### Case 1
+-  You might be able to use an **absolute path from the filesystem root**, such as `filename=/etc/passwd`, to directly reference a file without using any traversal sequences.
+
+#### Case 2
+- You might be able to use **nested traversal sequences**, such as `....//` or `....\/`, which will revert to simple traversal sequences when the inner sequence is stripped. 
+
+#### Case 3 
+- You might be able to use various **non-standard encodings**, such as `..%c0%af` or `..%252f`, to bypass the input filter. 
+
+#### Case 4
+- If an application requires that the **user-supplied filename must start with the expected base folder**, such as `/var/www/images`, then it might be possible to include the required base folder followed by suitable traversal sequences. 
+- For example
+  - `filename=/var/www/images/../../../etc/passwd` 
+
+#### Case 5
+-  If an application requires that the user-supplied filename must end with an expected file extension, such as .png, then it might be possible to **use a null byte** to effectively terminate the file path before the required extension. 
+- For example: 
+  - `filename=../../../etc/passwd%00.png`
+
+### How to prevent a directory traversal attack
+- The most effective way to prevent file path traversal vulnerabilities is to **avoid passing user-supplied input to filesystem APIs altogether**.
+- If it is considered unavoidable to pass user-supplied input to filesystem APIs, then two layers of defense should be used together to prevent attacks: 
+  - The application should **validate the user input before processing it**. Ideally, the validation should compare against a whitelist of permitted values. If that isn't possible for the required functionality, then the validation should verify that the input contains only permitted content, such as purely alphanumeric characters. 
+  - After validating the supplied input, the application should append the input to the base directory and use a platform filesystem API to canonicalize the path. It should verify that the canonicalized path starts with the expected base directory.
+
+
 ## Access control vulnerabilities
 
 ## Authentication
